@@ -6,7 +6,8 @@ public class Animal : MonoBehaviour
 {
   protected Rigidbody rbAnimal;
   protected float jumpMultiplier = 1;
-  private float jumpBase = 100;
+
+  public float JumpBase { get; set; }
 
   // Start is called before the first frame update
   void Start()
@@ -33,7 +34,7 @@ public class Animal : MonoBehaviour
 
   protected virtual void Jump()
   {
-    rbAnimal.AddForce(Vector3.up * jumpBase * jumpMultiplier);
+    rbAnimal.AddForce(Vector3.up * this.JumpBase * jumpMultiplier);
     this.Shout();
   }
 
